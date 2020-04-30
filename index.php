@@ -31,10 +31,10 @@ $produits = $response->fetchAll(PDO::FETCH_ASSOC);
     <?php include("fix/navbar.php") ?>
 
     <div class="container-fluid">
-    <div class="row">
+        <div class="row">
 
-        <?php foreach ($produits as $produit) : ?>
-            
+            <?php foreach ($produits as $produit) : ?>
+
                 <div class="ml-2 mt-5 col-md-2">
                     <div class="card" style="width: 13rem;">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
@@ -47,10 +47,10 @@ $produits = $response->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                 </div>
-            
-        <?php endforeach; ?>
 
-    </div>
+            <?php endforeach; ?>
+
+        </div>
     </div>
 
     <!-- Optional JavaScript -->
