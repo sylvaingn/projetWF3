@@ -1,18 +1,6 @@
 <?php
-var_dump($_GET);
-die;
+//var_dump($_GET);
 
-$bdd = new PDO('mysql:host=localhost;dbname=projetAlimentaire;charset=utf8;port=8889', 'root', 'root');
-$request = "SELECT * FROM varietesProduits where id= :id";
-
-$response = $bdd->prepare($request);
-$response->execute([
-
-    "id"           => $_GET["id"],
-
-]);
-
-$produit = $response->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -34,6 +22,13 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
 <body>
 
     <?php include("fix/navbar.php") ?>
+
+    <h1>Attention</h1>
+    <br>
+    <p>Êtes-vous sûr(e) de vouloir supprimer ce produit ?</p>
+    <br>
+    <a href="index.php" class="btn btn-danger">Non</a>
+    <a href="deletedProduit.php?id=<?= $_GET["id"]?>" class="btn btn-primary">Oui</a>
 
     
 
