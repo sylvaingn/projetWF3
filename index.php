@@ -43,7 +43,7 @@ $produits = $response->fetchAll(PDO::FETCH_ASSOC);
                             <p class="card-text">Découvrez cette variété !</p>
                             <a href="show.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Afficher</a>
                             <a href="modifProduit.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Modifier</a>
-                            <a href="show.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Supprimer</a>
+                            <a href="suppProduit.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Supprimer</a>
                         </div>
                     </div>
                 </div>
