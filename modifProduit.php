@@ -15,7 +15,7 @@ $response->execute([
 
 $produit = $response->fetch(PDO::FETCH_ASSOC);
 
-//var_dump($produit);
+var_dump($produit);
 
 ?>
 
@@ -37,11 +37,11 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
     <?php include("fix/navbar.php") ?>
 
 
-    <form action="updatedProduit.php?id=<?=$produit["id"]?>" method="POST">
+    <form action="updatedProduit.php?id=<?= $produit["id"] ?>" method="POST" enctype="multipart/form-data">
 
         <div class="form-group">
             <label for="formName">Nom du produit :</label>
-            <input name="nom" type="text" class="form-control" id="formName" value=<?= $produit['nom'] ?>>
+            <input name="nom" type="text" class="form-control" id="formName" value="<?= $produit["nom"] ?>">
         </div>
 
         <div class="form-group">
@@ -74,13 +74,21 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
 
         <div class="form-group">
             <label for="formQuantite">Quantité (kg) :</label>
-            <input name="quantite" type="text" class="form-control" id="formQuantite" value=<?= $produit['quantite'] ?>>
+            <input name="quantite" type="text" class="form-control" id="formQuantite" value="<?= $produit['quantite'] ?>">
         </div>
 
         <div class="form-group">
             <label for="formPays">Pays d'origine :</label>
-            <input name="pays_origine" type="text" class="form-control" id="formPays" value=<?= $produit['pays_origine'] ?>>
+            <input name="pays_origine" type="text" class="form-control" id="formPays" value="<?= $produit['pays_origine'] ?>">
         </div>
+
+        <?php /*?>
+        <div class="form-group">
+            <label for="formPhoto">Photo :</label>
+            <img src="uploads/<?= $produit["photo"]?>" alt="" >
+            <input name="photo" type="file" class="form-control" id="formPhoto" value="<?= $produit["photo"] ?>">
+        </div>
+        <?php */?>
 
         <button type="submit" class="btn btn-primary">Modifier ce produit !</button>
     </form>
