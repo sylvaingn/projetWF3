@@ -15,7 +15,7 @@ $response->execute([
 
 $produit = $response->fetch(PDO::FETCH_ASSOC);
 
-var_dump($produit);
+//var_dump($produit);
 
 ?>
 
@@ -82,13 +82,13 @@ var_dump($produit);
             <input name="pays_origine" type="text" class="form-control" id="formPays" value="<?= $produit['pays_origine'] ?>">
         </div>
 
-        <?php /*?>
+
         <div class="form-group">
             <label for="formPhoto">Photo :</label>
-            <img src="uploads/<?= $produit["photo"]?>" alt="" >
+            <img src="uploads/<?= $produit["photo"] ?>" alt="" width="500px">
             <input name="photo" type="file" class="form-control" id="formPhoto" value="<?= $produit["photo"] ?>">
         </div>
-        <?php */?>
+
 
         <button type="submit" class="btn btn-primary">Modifier ce produit !</button>
     </form>
