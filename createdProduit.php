@@ -101,7 +101,7 @@ function insertProduit($nomFichier)
         or empty($_POST["variete"])
         or empty($_POST["quantite"])
         or empty($_POST["pays_origine"])
-        or empty($_FILES["photo"])
+        or empty($_FILES["photo"]["name"])
     ) : ?>
 
         <h2>Un des champs est manquant.</h2>
@@ -124,7 +124,7 @@ function insertProduit($nomFichier)
             <li>Variété : <?= $_POST["variete"] ?></li>
             <li>Quantité (kg) : <?= $_POST["quantite"] ?></li>
             <li>Pays d'origine : <?= $_POST["pays_origine"] ?></li>
-            <li>Pays d'origine : <?= $nom ?></li>
+            <li>Photo : <?= $nom ?></li>
         </ul>
 
         <a href="index.php" class="btn btn-secondary">Retour à la page d'accueil !</a>
