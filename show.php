@@ -42,11 +42,11 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
 
     <?php if (empty($produit["photo"])) : ?>
 
-        <a href="addPhoto.php?id=<?= $produit["id"]?>" class="btn btn-secondary">Ajouter photo</a>
+        <a href="#" class="btn btn-secondary">Ajouter photo</a>
 
     <?php else : ?>
         
-        <a href="modifyPhoto.php?id=<?= $produit["id"]?>" class="btn btn-secondary">Modifier photo</a>
+        <a href="#" class="btn btn-secondary">Modifier photo</a>
 
     <?php endif; ?>
 
