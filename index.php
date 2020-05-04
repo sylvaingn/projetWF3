@@ -21,7 +21,7 @@ $produits = $response->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -35,15 +35,17 @@ $produits = $response->fetchAll(PDO::FETCH_ASSOC);
 
             <?php foreach ($produits as $produit) : ?>
 
-                <div class="ml-2 mt-5 col-md-2">
-                    <div class="card" style="width: 13rem;">
+                <div class="ml-6 mt-5 col-md-3">
+                    <div class="card" style="width: 20rem;">
                         <!-- <img src="..." class="card-img-top" alt="..."> -->
                         <div class="card-body">
                             <h5 class="card-title" style="text-align: center"><?= $produit["nom"] ?></h5>
                             <p class="card-text">Découvrez cette variété !</p>
-                            <a href="show.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Afficher</a>
-                            <a href="modifProduit.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Modifier</a>
-                            <a href="suppProduit.php?id=<?= $produit["id"] ?>" class="btn btn-primary">Supprimer</a>
+                            <div class="btn-group" role="group" aria-label="Basic example" style="width: 20px">
+                                <button type="button" class="btn btn-secondary"><a href="show.php?id=<?= $produit["id"]?>" class="text-warning stretched-link">Afficher</a></button>
+                                <button type="button" class="btn btn-secondary"><a href="modifProduit.php?id=<?= $produit["id"] ?>" class="text-warning stretched-link">Modifier</a></button>
+                                <button type="button" class="btn btn-secondary"><a href="suppProduit.php?id=<?= $produit["id"] ?>" class="text-warning stretched-link">Supprimer</a></button>
+                            </div>
                         </div>
                     </div>
                 </div>
