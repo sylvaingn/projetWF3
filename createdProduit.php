@@ -12,8 +12,7 @@ function checkForm()
         or empty($_POST["pays_origine"])
         or empty($_POST["photo"])
     )
-    return "Un des champs est vide";
-
+        return "Un des champs est vide";
 }
 
 
@@ -107,13 +106,14 @@ function insertProduit($nomFichier)
         <h2>Un des champs est manquant.</h2>
         <a href="addProduit.php">Retour en arrière</a>
 
-    <?php else : ?>
+    <?php endif; ?>
 
-        <?php 
-        checkFile($_FILES["photo"]);
-        $nom = saveFile($_FILES["photo"]);
-        insertProduit($nom);
-        ?>
+    <?php
+
+    if (is_null(checkFile($_FILES["photo"]))) : ?>
+        <?php $nom = saveFile($_FILES["photo"]);
+        insertProduit($nom) ?>
+        
 
         <h2>Bravo, vous venez d'ajouter un élément !</h2>
         <br>
@@ -128,6 +128,10 @@ function insertProduit($nomFichier)
         </ul>
 
         <a href="index.php" class="btn btn-secondary">Retour à la page d'accueil !</a>
+
+        <?php else : ?>
+            <h2>Le format de la photo n'est pas au format jpeg</h2>    
+        
 
     <?php endif; ?>
 
