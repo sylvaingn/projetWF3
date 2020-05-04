@@ -8,11 +8,11 @@ $response = $bdd->prepare($request);
 $response->execute([
 
     "id"           => $_GET["id"],
-    
-    ]);
+
+]);
 
 $produit = $response->fetch(PDO::FETCH_ASSOC);
-        
+
 ?>
 
 
@@ -20,6 +20,7 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Les petits paniers</title>
     <!-- Required meta tags -->
@@ -28,14 +29,29 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="styles.css">
-    
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
-    
-<?php include("fix/navbar.php")?>
 
+    <?php include("fix/navbar.php") ?>
 
+    <img src="uploads/<?= $produit["photo"] ?>" alt="" width="500px">
+    <br>
+
+    <?php if (empty($produit["photo"])) : ?>
+
+        <a href="addPhoto.php?id=<?= $produit["id"]?>" class="btn btn-secondary">Ajouter photo</a>
+
+    <?php else : ?>
+        
+        <a href="modifyPhoto.php?id=<?= $produit["id"]?>" class="btn btn-secondary">Modifier photo</a>
+
+    <?php endif; ?>
+
+    <br>
+    <br>
     <h1><?= $produit["nom"] ?></h1>
     <br>
     <h2><?= $produit["variete"] ?></h2>
@@ -54,4 +70,5 @@ $produit = $response->fetch(PDO::FETCH_ASSOC);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
