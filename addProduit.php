@@ -20,11 +20,11 @@
 <?php include("fix/navbar.php")?>
 
 
-<form action="createdProduit.php" method="POST">
+<form action="createdProduit.php" method="POST" enctype="multipart/form-data">
 
     <div class="form-group">
     <label for="formName">Nom du produit :</label>
-    <input name="nom" type="text" class="form-control" id="formName" required>
+    <input name="nom" type="text" class="form-control" id="formName" maxlength="45" required>
     </div>
 
     <div class="form-group">
@@ -44,6 +44,11 @@
     <div class="form-group">
     <label for="formPays">Pays d'origine :</label>
     <input name="pays_origine" type="text" class="form-control" id="formPays" required>
+    </div>
+
+    <div class="form-group">
+    <label for="formPhoto">Photo :</label>
+    <input name="photo" type="file" class="form-control" id="formPhoto" required>
     </div>
 
     <button type="submit" class="btn btn-primary">Ajouter ce produit !</button>
