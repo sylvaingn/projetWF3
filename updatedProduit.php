@@ -49,7 +49,7 @@ function updateProduit($nomFichier)
     ]);
 }
 
-if (empty($_FILES)) {
+if (empty($_FILES["photo"]["name"])) {
 
     $bdd = new PDO('mysql:host=localhost;dbname=projetAlimentaire;charset=utf8;port=8889', 'root', 'root');
     $request = "UPDATE varietesProduits 
@@ -78,8 +78,4 @@ if (empty($_FILES)) {
 
 
 
-header("Location: index.php");
-
-
-
-
+//header("Location: index.php");
